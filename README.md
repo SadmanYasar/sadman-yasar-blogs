@@ -1,1 +1,6 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+<div align="center">
+    NextJs Blog
+</div>
+<div align="center">
+    <h3>My first project with NextJs.</h3>
+</div>
