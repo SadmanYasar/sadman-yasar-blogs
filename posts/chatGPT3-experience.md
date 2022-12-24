@@ -18,6 +18,15 @@ Suddenly, I realised that there must be someone who made a tool to convert Javas
 
 To get started, go to Svelte [REPL](https://svelte.dev/repl/hello-world) and name your project. Setup App.svelte as follows:
 
+\`\`\`jsx
+
+import React from "react";
+
+const CoolComponent = () => <div>I'm a cool component!!</div>;
+
+export default CoolComponent;
+\`\`\`
+
 ```
 <script>
 </script>

@@ -24,3 +24,8 @@ img {
     max-width: 100%;
     display: block;
 }
+
+code {
+    white-space: pre-wrap !important;
+    /* background: grey;  */
+}
