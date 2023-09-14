@@ -1,6 +1,6 @@
 ---
 title: 'My Worst Experience At Fiverr'
-date: '2023-15-09'
+date: '2023-09-15'
 ---
 
 Imagine this: You have completed 3 projects on Upwork worth over USD3000 where you had to use the tools Next.js, React, Astro, Apollo GraphQL, all of MERN stack and Python for web scraping. All of your efforts led to the creation of an MVP that began an entire startup, founded by one of the founding members of SPEEDHOME. You worked so well that you got invited to the head office, did meetings with senior developers and even with folks at Alicloud. You were the youngest and the first employee at the startup and had to manage a team while working on 3 projects at the same time and met the deadlines.
