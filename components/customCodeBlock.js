@@ -9,15 +9,20 @@ export default function CustomCodeBlock(props) {
         ? className.match(/(?<=language-)(\w.*?)\b/)[0]
         : "javascript";
 
-    return copy ? (
-        <CopyBlock
-            text={children}
-            language={language}
-            theme={dracula}
-            wrapLines
-            codeBlock
-        />
-    ) : (
-        <CodeBlock text={children} language={language} theme={dracula} wrapLines />
+    return (
+        <>
+            <div className="w-full overflow-x-auto">
+                {copy ? (
+                    <CopyBlock
+                        text={children}
+                        language={language}
+                        theme={dracula}
+                        codeBlock
+                    />
+                ) : (
+                    <CodeBlock text={children} language={language} theme={dracula} />
+                )}
+            </div>
+        </>
     )
 }

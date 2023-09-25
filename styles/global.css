@@ -8,11 +8,6 @@
   }
 }
 
-code {
-  white-space: pre-wrap !important;
-  /* background: grey;  */
-}
-
 ::-webkit-scrollbar {
   width: 0.4rem; /* Adjust the width as needed */
 }
