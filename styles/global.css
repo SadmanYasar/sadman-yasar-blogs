@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-stone-900 text-purple-50/90 antialiased;
+    @apply bg-stone-900 text-purple-50/90 antialiased selection:bg-purple-800;
   }
 }
 
