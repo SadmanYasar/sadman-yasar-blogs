@@ -87,7 +87,7 @@ export default function Layout({ children, home }) {
                 {!home && (
                     <div className='my-12'>
                         <Link href="/">
-                            <a>← Back to home</a>
+                            <a className='hover:text-purple-500 selection:text-white'>← Back to home</a>
                         </Link>
                     </div>
                 )}
