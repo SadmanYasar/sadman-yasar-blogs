@@ -10,7 +10,6 @@ const Starfield = ({ speed = 0.5, className }) => {
 
     useEffect(() => {
         setMounted(true);
-        console.log(mounted)
     }, []);
 
     const shouldReduceMotion = useReducedMotion();
