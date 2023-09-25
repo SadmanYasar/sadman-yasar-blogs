@@ -1,31 +1,22 @@
-html,
-body {
-    padding: 0;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-        Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    line-height: 1.6;
-    font-size: 18px;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-* {
-    box-sizing: border-box;
-}
-
-a {
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-img {
-    max-width: 100%;
-    display: block;
+@layer base {
+  body {
+    @apply bg-stone-900 text-purple-50/90 antialiased selection:bg-purple-800;
+  }
 }
 
 code {
-    white-space: pre-wrap !important;
-    /* background: grey;  */
+  white-space: pre-wrap !important;
+  /* background: grey;  */
+}
+
+::-webkit-scrollbar {
+  width: 0.4rem; /* Adjust the width as needed */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Hide the thumb */
 }
