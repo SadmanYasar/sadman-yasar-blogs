@@ -1,24 +1,24 @@
 import fs from 'fs'
-import utilStyles from '../../styles/utils.module.css'
-import Date from '../../components/date'
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
-import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import Link from 'next/link'
 import path from 'path'
 import Layout from '../../components/layout'
 import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils'
-import { motion, useScroll, useSpring } from 'framer-motion'
+import ScrollBar from '../../components/scrollBar'
+import Date from '../../components/date'
+import CustomLink from '../../components/customLink'
+import CustomCodeBlock from '../../components/customCodeBlock'
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
 // to handle import statements. Instead, you must include components in scope
 // here.
 const components = {
-    // a: CustomLink,
-
+    a: CustomLink,
+    p: (props) => <p className="mb-8 leading-7 text-lg" {...props} />,
+    code: (props) => <CustomCodeBlock {...props} copy={true} />,
     // It also works with dynamically-imported components, which is especially
     // useful for conditionally loading components for certain routes.
     // See the notes in README.md for more details.
@@ -43,7 +43,8 @@ export default function Post({ source, frontMatter }) {
                     <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
                 </article> */}
                 <div className="post-header">
-                    <h1>{frontMatter.title}</h1>
+                    <h1 className="text-2xl leading-1.3 font-extrabold tracking-wide my-4">{frontMatter.title}</h1>
+                    <Date dateString={frontMatter.date} />
                 </div>
 
                 <main>
@@ -66,42 +67,6 @@ export default function Post({ source, frontMatter }) {
         </>
     )
 }
-
-function ScrollBar() {
-    const { scrollYProgress } = useScroll()
-
-    const scaleX = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001
-    });
-
-    return (
-        <motion.div
-            className='fixed top-0 left-0 right-0 h-1 bg-purple-500 transform origin-left'
-            style={{
-                scaleX
-            }}
-        />
-    )
-}
-
-// export async function getStaticPaths() {
-//     const paths = getAllPostIds()
-//     return {
-//         paths,
-//         fallback: false
-//     }
-// }
-
-// export async function getStaticProps({ params }) {
-//     const postData = await getPostData(params.id)
-//     return {
-//         props: {
-//             postData
-//         }
-//     }
-// }
 
 export const getStaticProps = async ({ params }) => {
     const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`)

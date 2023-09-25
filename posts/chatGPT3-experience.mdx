@@ -18,7 +18,7 @@ Suddenly, I realised that there must be someone who made a tool to convert Javas
 
 To get started, go to Svelte [REPL](https://svelte.dev/repl/hello-world) and name your project. Setup App.svelte as follows:
 
-```
+```html
 <script>
 </script>
 
@@ -33,7 +33,7 @@ For the application, we need one textarea for pasting the javascript object and 
 
 Let's now add two textareas in App.svelte:
 
-```
+```javascript
 <script>
     let text = '';
     let output = '';
@@ -115,9 +115,7 @@ const objectToEnvString = () => {
 		}
 	}
 ```
-
 I asked ChatGPT to explain this code. Here is what it said:
-
 - The function starts by defining an empty string called errorMsg and another empty string called output.
 - It then uses the trim and replace methods to modify the input string (stored in the variable text). The trim method removes leading and trailing white spaces from the string, and the replace method adds double quotes to each key and removes semicolons from the string.
 - The modified string is then parsed into a JavaScript object using the JSON.parse method.

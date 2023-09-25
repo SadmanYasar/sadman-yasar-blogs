@@ -85,7 +85,7 @@ export default function Layout({ children, home }) {
                 </header>
                 <main>{children}</main>
                 {!home && (
-                    <div className='mt-12'>
+                    <div className='my-12'>
                         <Link href="/">
                             <a>← Back to home</a>
                         </Link>
