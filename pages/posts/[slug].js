@@ -4,12 +4,12 @@ import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import Head from 'next/head'
 import path from 'path'
-import Layout from '../../components/layout'
-import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils'
-import ScrollBar from '../../components/scrollBar'
-import Date from '../../components/date'
-import CustomLink from '../../components/customLink'
-import CustomCodeBlock from '../../components/customCodeBlock'
+import Layout from '@/components/layout'
+import { postFilePaths, POSTS_PATH } from '@/utils/mdxUtils'
+import ScrollBar from '@/components/scrollBar'
+import Date from '@/components/date'
+import CustomLink from '@/components/customLink'
+import CustomCodeBlock from '@/components/customCodeBlock'
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
