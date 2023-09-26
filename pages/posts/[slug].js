@@ -4,12 +4,12 @@ import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import Head from 'next/head'
 import path from 'path'
-import Layout from '../../components/layout'
-import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils'
-import ScrollBar from '../../components/scrollBar'
-import Date from '../../components/date'
-import CustomLink from '../../components/customLink'
-import CustomCodeBlock from '../../components/customCodeBlock'
+import Layout from '@/components/layout'
+import { postFilePaths, POSTS_PATH } from '@/utils/mdxUtils'
+import ScrollBar from '@/components/scrollBar'
+import Date from '@/components/date'
+import CustomLink from '@/components/customLink'
+import CustomCodeBlock from '@/components/customCodeBlock'
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -17,9 +17,10 @@ import CustomCodeBlock from '../../components/customCodeBlock'
 // here.
 const components = {
     a: CustomLink,
-    p: (props) => <p className="mb-8 leading-7 text-lg" {...props} />,
+    p: (props) => <p className="mb-8 text-lg" {...props} />,
     code: (props) => <CustomCodeBlock {...props} copy={true} />,
-    li: (props) => <li className="mb-4 leading-7 text-lg" {...props} />,
+    li: (props) => <li className="mb-4 text-lg" {...props} />,
+    h2: (props) => <h2 className="text-2xl font-extrabold tracking-wide my-4" {...props} />,
     // It also works with dynamically-imported components, which is especially
     // useful for conditionally loading components for certain routes.
     // See the notes in README.md for more details.

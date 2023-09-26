@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Starfield from './starfield';
+import Starfield from '@/components/starfield';
 
 export const siteTitle = 'Sadman Yasar Sayem Blogs';
 const data = {
@@ -29,7 +29,7 @@ const data = {
 export default function Layout({ children, home }) {
     return (
         <>
-            <div className='max-w-2xl w-full  min-h-screen mx-auto px-4'>
+            <div className='max-w-2xl w-full min-h-screen mx-auto px-4'>
                 <Head>
                     <link rel="icon" href="/favicon.ico" />
                     <meta
@@ -38,9 +38,7 @@ export default function Layout({ children, home }) {
                     />
                     <meta
                         property="og:image"
-                        content={`https://og-image.vercel.app/${encodeURI(
-                            siteTitle,
-                        )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+                        content={data.profile}
                     />
                     <meta name="og:title" content={siteTitle} />
                     <meta name="twitter:card" content="summary_large_image" />
@@ -56,7 +54,7 @@ export default function Layout({ children, home }) {
                                 />
                             </div>
                             <h1 className="text-2xl leading-1.3 font-extrabold tracking-wide my-8 mx-auto">{data.name}</h1>
-                            <div className='w-full mx-auto mb-8 flex items-center justify-center space-x-6'>
+                            <div className='w-full mx-auto mb-4 flex items-center justify-center space-x-6'>
                                 {data.urls.map((url, index) => (
                                     <a href={url.url} key={index} target="_blank">
                                         <img src={url.iconPath} className="w-12 h-12 rounded-lg object-cover p-2 hover:shadow-lg hover:shadow-purple-500 transition duration-100" />
