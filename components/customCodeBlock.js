@@ -11,18 +11,16 @@ export default function CustomCodeBlock(props) {
 
     return (
         <>
-            <div className="w-full overflow-x-auto">
-                {copy ? (
-                    <CopyBlock
-                        text={children}
-                        language={language}
-                        theme={dracula}
-                        codeBlock
-                    />
-                ) : (
-                    <CodeBlock text={children} language={language} theme={dracula} />
-                )}
-            </div>
+            {copy ? (
+                <CopyBlock
+                    text={children}
+                    language={language}
+                    theme={dracula}
+                    codeBlock
+                />
+            ) : (
+                <CodeBlock text={children} language={language} theme={dracula} />
+            )}
         </>
     )
 }

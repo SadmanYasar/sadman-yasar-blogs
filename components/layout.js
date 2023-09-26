@@ -29,7 +29,7 @@ const data = {
 export default function Layout({ children, home }) {
     return (
         <>
-            <div className='max-w-2xl w-full  min-h-screen mx-auto px-4'>
+            <div className='max-w-2xl w-full min-h-screen mx-auto px-4'>
                 <Head>
                     <link rel="icon" href="/favicon.ico" />
                     <meta
@@ -54,7 +54,7 @@ export default function Layout({ children, home }) {
                                 />
                             </div>
                             <h1 className="text-2xl leading-1.3 font-extrabold tracking-wide my-8 mx-auto">{data.name}</h1>
-                            <div className='w-full mx-auto mb-8 flex items-center justify-center space-x-6'>
+                            <div className='w-full mx-auto mb-4 flex items-center justify-center space-x-6'>
                                 {data.urls.map((url, index) => (
                                     <a href={url.url} key={index} target="_blank">
                                         <img src={url.iconPath} className="w-12 h-12 rounded-lg object-cover p-2 hover:shadow-lg hover:shadow-purple-500 transition duration-100" />

@@ -8,6 +8,48 @@
   }
 }
 
+@layer components {
+  .heading2Xl {
+    @apply text-2.5xl font-semibold tracking-wide my-4;
+  }
+
+  .headingXl {
+    @apply text-2xl font-semibold tracking-wide my-4;
+  }
+
+  .headingLg {
+    @apply text-xl my-4;
+  }
+
+  .headingMd {
+    @apply text-lg my-4;
+  }
+
+  .borderCircle {
+    @apply rounded-full;
+  }
+
+  .colorInherit {
+    @apply text-inherit;
+  }
+
+  .padding1px {
+    @apply pt-1;
+  }
+
+  .list {
+    @apply list-none m-0 p-0;
+  }
+
+  .listItem {
+    @apply mb-5;
+  }
+
+  .lightText {
+    @apply text-gray-500;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 0.4rem; /* Adjust the width as needed */
 }
