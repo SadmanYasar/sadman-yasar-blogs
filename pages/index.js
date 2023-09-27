@@ -3,8 +3,7 @@ import Date from '@/components/date'
 import Head from 'next/head'
 import Layout, { siteTitle } from '@/components/layout'
 import { getSortedPostsData } from '@/utils/mdxUtils'
-import { useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
@@ -30,7 +29,7 @@ export default function Home({ allPostsData }) {
         <ul className='list'>
           {allPostsData.map((post, index) => (
             <motion.li className='listItem' key={post.filePath} initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: index * 0.5, duration: 1 } }}>
-              <Link as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`} href={`/posts/[slug]`}>
+              <Link legacyBehavior as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`} href={`/posts/[slug]`}>
                 <a>{post.data.title}</a>
               </Link>
               <br />

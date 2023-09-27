@@ -66,7 +66,7 @@ export default function Layout({ children, home }) {
                         </>
                     ) : (
                         <>
-                            <Link href="/">
+                            <Link legacyBehavior href="/">
                                 <a>
                                     <img
                                         src={data.profile}
@@ -76,7 +76,7 @@ export default function Layout({ children, home }) {
                                 </a>
                             </Link>
                             <h2 className='text-lg leading-1.4 my-4'>
-                                <Link href="/">
+                                <Link legacyBehavior href="/">
                                     <a className='text-current'>{data.name}</a>
                                 </Link>
                             </h2>
@@ -86,7 +86,7 @@ export default function Layout({ children, home }) {
                 <main>{children}</main>
                 {!home && (
                     <div className='my-12'>
-                        <Link href="/">
+                        <Link legacyBehavior href="/">
                             <a className='hover:text-purple-500 selection:text-white'>← Back to home</a>
                         </Link>
                     </div>
