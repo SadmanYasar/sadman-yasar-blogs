@@ -1,20 +1,20 @@
 import Date from "@/components/date";
-import Layout, {siteTitle} from "@/components/layout";
-import {getSortedPostsData} from "@/utils/mdxUtils";
-import {motion} from "framer-motion";
+import Layout, { siteTitle } from "@/components/layout";
+import { getSortedPostsData } from "@/utils/mdxUtils";
+import { motion } from "framer-motion";
 import Head from "next/head";
 import Link from "next/link";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
   return {
-    props : {
+    props: {
       allPostsData,
     },
   };
 }
 
-export default function Home({allPostsData}) {
+export default function Home({ allPostsData }) {
   return (
     <Layout home>
       <Head>
@@ -23,12 +23,12 @@ export default function Home({allPostsData}) {
       <section className="headingMd">
         <p>
           Hi! I am a Computer Science undergraduate student at UTM. Here, you
-  will find my thoughts and anything that I find interesting to write
-  on, mostly tech - related. 👨‍💻 </p>
+          will find my thoughts and anything that I find interesting to write
+          on, mostly tech - related. 👨‍💻{" "}
+        </p>
       </section>
-                    <section className = "headingMd padding1px">
-                    <h2 className = "headingLg">Blog <
-          /h2>
+      <section className="headingMd padding1px">
+        <h2 className="headingLg">Blog </h2>
         <ul className="list">
           {allPostsData.map((post, index) => (
             <motion.li
