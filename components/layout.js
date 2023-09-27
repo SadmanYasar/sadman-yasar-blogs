@@ -1,33 +1,27 @@
+import Starfield from '@/components/starfield';
+import {motion} from "framer-motion";
 import Head from 'next/head';
 import Link from 'next/link';
-import Starfield from '@/components/starfield';
-import { motion } from "framer-motion";
 
 export const siteTitle = 'Sadman Yasar Sayem Blogs';
 const data = {
-    name: 'Sadman Yasar Sayem',
-    profile: 'https://avatars.githubusercontent.com/u/67522140?v=4',
-    urls: [
-        {
-            iconPath: '/upwork.svg',
-            url: 'https://www.upwork.com/freelancers/~01cfd344d945d1f282?viewMode=1'
-        },
-        {
-            iconPath: '/linkedin.svg',
-            url: 'https://www.linkedin.com/in/Sadman-Yasar-Sayem/'
-        },
-        {
-            iconPath: '/github.svg',
-            url: 'https://github.com/SadmanYasar'
-        },
-        {
-            iconPath: '/behance.svg',
-            url: 'https://www.behance.net/sadmanyasar'
-        },
-    ]
+  name : 'Sadman Yasar Sayem',
+  profile : 'https://avatars.githubusercontent.com/u/67522140?v=4',
+  urls : [
+    {
+      iconPath : '/upwork.svg',
+      url : 'https://www.upwork.com/freelancers/~01cfd344d945d1f282?viewMode=1'
+    },
+    {
+      iconPath : '/linkedin.svg',
+      url : 'https://www.linkedin.com/in/Sadman-Yasar-Sayem/'
+    },
+    {iconPath : '/github.svg', url : 'https://github.com/SadmanYasar'},
+    {iconPath : '/behance.svg', url : 'https://www.behance.net/sadmanyasar'},
+  ]
 }
 
-export default function Layout({ children, home }) {
+export default function Layout({children, home}) {
     return (
         <>
             <div className='max-w-2xl w-full min-h-screen mx-auto px-4'>

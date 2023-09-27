@@ -1,9 +1,9 @@
-import Link from 'next/link'
 import Date from '@/components/date'
+import Layout, {siteTitle} from '@/components/layout'
+import {getSortedPostsData} from '@/utils/mdxUtils'
+import {motion} from 'framer-motion'
 import Head from 'next/head'
-import Layout, { siteTitle } from '@/components/layout'
-import { getSortedPostsData } from '@/utils/mdxUtils'
-import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
@@ -14,7 +14,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function Home({ allPostsData }) {
+export default function Home({allPostsData}) {
 
   return (
     <Layout home>
@@ -29,7 +29,8 @@ export default function Home({ allPostsData }) {
         <ul className='list'>
           {allPostsData.map((post, index) => (
             <motion.li className='listItem' key={post.filePath} initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: index * 0.5, duration: 1 } }}>
-              <Link legacyBehavior as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`} href={`/posts/[slug]`}>
+              <Link legacyBehavior as={`/posts/${
+    post.filePath.replace(/\.mdx?$/, '')}`} href={`/posts/[slug]`}>
                 <a>{post.data.title}</a>
               </Link>
               <br />
