@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Starfield from '@/components/starfield';
+import { motion } from "framer-motion";
 
 export const siteTitle = 'Sadman Yasar Sayem Blogs';
 const data = {
@@ -46,13 +47,14 @@ export default function Layout({ children, home }) {
                 <header className='flex flex-col self-center'>
                     {home ? (
                         <>
-                            <div className='p-2 rounded-full mx-auto mt-8 bg-purple-500 bg-opacity-20 transition hover:bg-opacity-10 ease-in-out duration-100'>
+                            <div className='relative rounded-full mx-auto mt-8'>
                                 <img
                                     src={data.profile}
-                                    className="rounded-full h-36 w-36 object-cover border-4 border-purple-500"
+                                    className="rounded-full hover:shadow-purple-500 transition ease-in-out duration-100 shadow-lg h-36 w-36 object-cover border-1 border-purple-500"
                                     alt={data.name}
                                 />
                             </div>
+
                             <h1 className="text-2xl leading-1.3 font-extrabold tracking-wide my-8 mx-auto">{data.name}</h1>
                             <div className='w-full mx-auto mb-4 flex items-center justify-center space-x-6'>
                                 {data.urls.map((url, index) => (

@@ -10,6 +10,7 @@ import ScrollBar from '@/components/scrollBar'
 import Date from '@/components/date'
 import CustomLink from '@/components/customLink'
 import CustomCodeBlock from '@/components/customCodeBlock'
+import Comments from '@/components/comments'
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -37,20 +38,14 @@ export default function Post({ source, frontMatter }) {
                 <Head>
                     <title>{frontMatter.title}</title>
                 </Head>
-                {/* <article>
-                    <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-                    <div className={utilStyles.lightText}>
-                        <Date dateString={postData.date} />
-                    </div>
-                    <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-                </article> */}
-                <div className="post-header">
-                    <h1 className="text-2xl leading-1.3 font-extrabold tracking-wide my-4">{frontMatter.title}</h1>
-                    <Date dateString={frontMatter.date} />
-                </div>
 
                 <main>
+                    <div className="post-header">
+                        <h1 className="text-2xl leading-1.3 font-extrabold tracking-wide my-4">{frontMatter.title}</h1>
+                        <Date dateString={frontMatter.date} />
+                    </div>
                     <MDXRemote {...source} components={components} />
+                    <Comments />
                 </main>
 
                 <style jsx>{`
