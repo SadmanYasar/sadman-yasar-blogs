@@ -8,14 +8,17 @@ export default function Comments() {
 
   return (
     <Giscus
-  repo = {repo} repoId = {repoId} category = {category} categoryId = {
-      categoryId} mapping = "title"
-  strict = "0"
-  reactionsEnabled = "1"
-  emitMetadata = "0"
-  inputPosition = "top"
-  theme = "dark"
-  lang = "en"
+      repo={repo}
+      repoId={repoId}
+      category={category}
+      categoryId={categoryId}
+      mapping="title"
+      strict="0"
+      reactionsEnabled="1"
+      emitMetadata="0"
+      inputPosition="top"
+      theme="dark"
+      lang="en"
       loading="lazy"
     />
   );
