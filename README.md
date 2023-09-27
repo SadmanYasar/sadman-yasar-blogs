@@ -6,6 +6,7 @@
 </div>
 
 Features:
+
 - MDX support
 - SSG
 - Giscus for comments
