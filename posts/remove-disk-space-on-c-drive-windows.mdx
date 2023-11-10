@@ -1,0 +1,20 @@
+---
+title: 'Got Yarn and NPM installed? Remove cache!'
+date: '2023-11-10'
+---
+
+For the past couple of months, one thing has worried me quite a lot: the C drive was taking up too much space. I have a 240GB SSD and was left with only 20GB of free space. I was wondering what was taking up so much space.
+
+During that time, I was learning Docker by doing Brian Holt's Complete Intro to Containers course on [FrontendMasters](https://frontendmasters.com/courses/complete-intro-containers/) as well as [Part 12](https://fullstackopen.com/en/part12/introduction_to_containers) on Full Stack Open and blamed the Docker images for taking up so much space, as well as WSL. I was wrong. It was the cache of Yarn and NPM.
+
+Just by running the following commands, I was able to free up 27GB of space:
+
+```javascript
+yarn cache clean
+
+npm cache clean --f
+```
+
+I couldn't believe my eyes when I saw the amount of space I was able to free up. It is now a habit of mine to run these commands every now and then.
+
+As I am focusing on containerizing everything these days, I find it inconvenient to install anything locally. I have begun to appreciate the under-the-hood workings of Docker. To my understanding, the essence of containers consists merely of a few Linux kernel capabilities duct-taped together. It is merely a way to combine a few Linux features to create isolation.
