@@ -2,10 +2,10 @@
     NextJs Blog
 </div>
 <div align="center">
-    <h3>My first project with NextJs.</h3>
+    <h3>My first project with NextJs. Created in 2022.</h3>
 </div>
 
-Features:
+Features(v2024):
 - MDX support
 - SSG
 - Giscus for comments
