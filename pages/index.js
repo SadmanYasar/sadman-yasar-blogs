@@ -33,6 +33,7 @@ export default function Home({ allPostsData }) {
           {allPostsData.map((post, index) => (
             <motion.li
               className="listItem"
+              aria-label={post.data.title}
               key={post.filePath}
               initial={{ opacity: 0 }}
               animate={{
