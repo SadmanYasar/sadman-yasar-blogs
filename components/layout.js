@@ -1,5 +1,4 @@
 import Starfield from "@/components/starfield";
-import { motion } from "framer-motion";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -11,13 +10,23 @@ const data = {
     {
       iconPath: "/upwork.svg",
       url: "https://www.upwork.com/freelancers/~01cfd344d945d1f282?viewMode=1",
+      alt: "Click to visit my Upwork profile",
     },
     {
       iconPath: "/linkedin.svg",
       url: "https://www.linkedin.com/in/Sadman-Yasar-Sayem/",
+      alt: "Click to visit my LinkedIn profile",
     },
-    { iconPath: "/github.svg", url: "https://github.com/SadmanYasar" },
-    { iconPath: "/behance.svg", url: "https://www.behance.net/sadmanyasar" },
+    {
+      iconPath: "/github.svg",
+      url: "https://github.com/SadmanYasar",
+      alt: "Click to visit my Github profile"
+    },
+    {
+      iconPath: "/behance.svg",
+      url: "https://www.behance.net/sadmanyasar",
+      alt: "Click to visit my Behance profile"
+    },
   ],
 };
 
@@ -51,10 +60,11 @@ export default function Layout({ children, home }) {
               </h1>
               <div className="w-full mx-auto mb-4 flex items-center justify-center space-x-6">
                 {data.urls.map((url, index) => (
-                  <a href={url.url} key={index} target="_blank">
+                  <a href={url.url} key={index} target="_blank" aria-label={`${data.urls[index].alt}`}>
                     <img
                       src={url.iconPath}
                       className="w-12 h-12 rounded-lg object-cover p-2 hover:shadow-lg hover:shadow-purple-500 transition duration-100"
+                      alt={url.alt}
                     />
                   </a>
                 ))}
@@ -63,7 +73,7 @@ export default function Layout({ children, home }) {
           ) : (
             <>
               <Link legacyBehavior href="/">
-                <a>
+                <a aria-label="Sadman Yasar Sayem profile picture">
                   <img
                     src={data.profile}
                     className="rounded-full h-24 w-24 object-cover mt-8 transition hover:border-4 border-purple-500 border-opacity-20 ease-in-out duration-100"
@@ -73,7 +83,7 @@ export default function Layout({ children, home }) {
               </Link>
               <h2 className="text-lg leading-1.4 my-4">
                 <Link legacyBehavior href="/">
-                  <a className="text-current">{data.name}</a>
+                  <a className="text-current" aria-label="Sadman Yasar Sayem">{data.name}</a>
                 </Link>
               </h2>
             </>
@@ -83,7 +93,7 @@ export default function Layout({ children, home }) {
         {!home && (
           <div className="my-12">
             <Link legacyBehavior href="/">
-              <a className="hover:text-purple-500 selection:text-white">
+              <a className="hover:text-purple-500 selection:text-white" aria-label="Back to home">
                 ← Back to home
               </a>
             </Link>
