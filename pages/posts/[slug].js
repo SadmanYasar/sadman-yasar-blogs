@@ -18,18 +18,44 @@ import path from "path";
 // here.
 const components = {
   a: CustomLink,
-  p: (props) => <p className="mb-8 text-lg" {...props} />,
-  code: (props) => <CustomCodeBlock {...props} copy={true} />,
-  li: (props) => <li className="mb-4 text-lg" {...props} />,
+  p: (props) => <p className="mb-8 text-lg text-justify" {...props} />,
+  // Handle block code (multi-line code blocks)
+  pre: (props) => <div {...props} className="my-6 not-prose" />,
+  code: (props) => {
+    // This is important: we only want to use CustomCodeBlock for multi-line code blocks
+    // which are wrapped in a <pre> tag by the MDX processor
+    const isInlineCode = !props.className;
+    if (isInlineCode) {
+      return <code className="bg-purple-800 text-white py-0.5 px-1 rounded font-mono text-sm" {...props} />;
+    }
+    return <CustomCodeBlock {...props} copy={true} />;
+  },
+  // Improve list items styling
+  ul: (props) => <ul className="pl-8 mb-8 list-disc" {...props} />,
+  ol: (props) => <ol className="pl-8 mb-8 list-decimal" {...props} />,
+  li: (props) => <li className="mb-2 text-lg" {...props} />,
+  // Improve headings
   h2: (props) => (
-    <h2 className="text-2xl font-extrabold tracking-wide my-4" {...props} />
+    <h2 className="mt-10 mb-6 text-2xl font-extrabold tracking-wide" {...props} />
   ),
-  // It also works with dynamically-imported components, which is especially
-  // useful for conditionally loading components for certain routes.
-  // See the notes in README.md for more details.
-  // TestComponent: dynamic(() => import('../../components/TestComponent')),
-
-  // Head,
+  h3: (props) => (
+    <h3 className="mt-8 mb-4 text-xl font-bold tracking-wide" {...props} />
+  ),
+  h4: (props) => (
+    <h4 className="mt-6 mb-3 text-lg font-bold tracking-wide" {...props} />
+  ),
+  // Add blockquote styling
+  blockquote: (props) => (
+    <blockquote className="pl-4 my-6 italic text-gray-700 border-l-4 border-gray-300" {...props} />
+  ),
+  // Add table styling
+  table: (props) => (
+    <div className="my-8 overflow-x-auto">
+      <table className="min-w-full divide-y divide-gray-300" {...props} />
+    </div>
+  ),
+  th: (props) => <th className="px-4 py-3 font-semibold text-left bg-gray-100" {...props} />,
+  td: (props) => <td className="px-4 py-2 border-t border-gray-200" {...props} />,
 };
 
 export default function Post({ source, frontMatter }) {

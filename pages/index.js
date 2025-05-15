@@ -38,7 +38,7 @@ export default function Home({ allPostsData }) {
               initial={{ opacity: 0 }}
               animate={{
                 opacity: 1,
-                transition: { delay: index * 0.5, duration: 1 },
+                transition: { delay: index * 0.2, duration: 0.5 },
               }}
             >
               <Link

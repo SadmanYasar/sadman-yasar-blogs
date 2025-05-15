@@ -33,7 +33,7 @@ For the application, we need one textarea for pasting the javascript object and 
 
 Let's now add two textareas in App.svelte:
 
-```javascript
+```js
 <script>
     let text = '';
     let output = '';
@@ -87,7 +87,7 @@ Now comes the fun part! On ChatGPT, I asked the following questions:
 
 Using the answers provided by ChatGPT, I was able to come up with a function that did the conversion: 
 
-```
+```js
 const objectToEnvString = () => {
 		try {
 			errorMsg = '';
