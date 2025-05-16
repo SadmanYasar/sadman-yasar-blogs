@@ -11,3 +11,8 @@ Features(v2024):
 - Giscus for comments
 - Animations with Framer Motion
 - Tailwind
+- Accessibility with UserWay
+  
+Features(v2025):
+- Google Analytics
+- SEO Optimization

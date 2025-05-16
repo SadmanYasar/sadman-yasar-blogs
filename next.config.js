@@ -23,6 +23,9 @@ const nextConfig = {
         locales: ["en"],
         defaultLocale: "en",
     },
+    compiler: {
+        removeConsole: process.env.NODE_ENV === "production",
+    }
 }
 
 // Merge MDX config with Next.js config

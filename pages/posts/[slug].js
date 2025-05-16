@@ -1,7 +1,7 @@
 import Comments from "@/components/comments";
 import CustomCodeBlock from "@/components/customCodeBlock";
 import CustomLink from "@/components/customLink";
-import Date from "@/components/date";
+import DateRenderer from "@/components/date";
 import Layout from "@/components/layout";
 import ScrollBar from "@/components/scrollBar";
 import { postFilePaths, POSTS_PATH } from "@/utils/mdxUtils";
@@ -11,6 +11,8 @@ import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import Head from "next/head";
 import path from "path";
+import { useRouter } from "next/router";
+import { config } from "data/config";
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -59,12 +61,41 @@ const components = {
 };
 
 export default function Post({ source, frontMatter }) {
+  const router = useRouter();
+  const siteUrl = config.siteUrl;
+  const canonicalUrl = `${siteUrl}${router.asPath}`;
+  const keywords = frontMatter.keywords || (frontMatter.tags ? frontMatter.tags.join(", ") : "");
   return (
     <>
       <ScrollBar />
       <Layout>
         <Head>
           <title>{frontMatter.title}</title>
+          <meta name="description" content={frontMatter.description} />
+          <meta name="keywords" content={keywords} />
+          {frontMatter.twitter && <meta name="author" content={'sadmanyasar_'} />}
+          <link rel="canonical" href={canonicalUrl} />
+
+          {/* Open Graph Meta Tags */}
+          <meta property="og:title" content={frontMatter.title} />
+          <meta property="og:description" content={frontMatter.description} />
+          <meta property="og:url" content={canonicalUrl} />
+          <meta property="og:type" content="article" />
+          {frontMatter.image && <meta property="og:image" content={frontMatter.image} />}
+          <meta property="og:site_name" content="Sadman Yasar Sayem Blogs" />
+          <meta property="article:published_time" content={new Date(frontMatter.date).toISOString()} />
+          {frontMatter.twitter && <meta property="article:author" content={`https://twitter.com/sadmanyasar_}`} />}
+          {frontMatter.tags && frontMatter.tags.map(tag => (
+            <meta property="article:tag" content={tag} key={tag} />
+          ))}
+
+          {/* Twitter Card Meta Tags */}
+          <meta name="twitter:card" content="summary_large_image" />
+          {frontMatter.twitter && <meta name="twitter:site" content={`@sadmanyasar_}`} />}
+          {frontMatter.twitter && <meta name="twitter:creator" content={`@sadmanyasar_}`} />}
+          <meta name="twitter:title" content={frontMatter.title} />
+          <meta name="twitter:description" content={frontMatter.description} />
+          {frontMatter.image && <meta name="twitter:image" content={frontMatter.image} />}
         </Head>
 
         <main>
@@ -72,7 +103,7 @@ export default function Post({ source, frontMatter }) {
             <h1 className="text-2xl leading-1.3 font-extrabold tracking-wide my-4">
               {frontMatter.title}
             </h1>
-            <Date dateString={frontMatter.date} />
+            <DateRenderer dateString={frontMatter.date} />
           </div>
           <MDXRemote {...source} components={components} />
           <Comments />

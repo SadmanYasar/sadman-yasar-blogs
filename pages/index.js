@@ -28,7 +28,9 @@ export default function Home({ allPostsData }) {
         </p>
       </section>
       <section className="headingMd padding1px">
-        <h2 className="headingLg">Blog</h2>
+        <div className="flex flex-row gap-2">
+          <h2 className="headingLg">Blog</h2>
+        </div>
         <ul className="list">
           {allPostsData.map((post, index) => (
             <motion.li

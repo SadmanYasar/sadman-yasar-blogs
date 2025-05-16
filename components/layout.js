@@ -1,69 +1,47 @@
 import Starfield from "@/components/starfield";
+import { profileData } from "data/profile";
 import Head from "next/head";
 import Link from "next/link";
+import ScrollToTop from "react-scroll-to-top";
+import ScrollToTopIcon from "./scrollToTop";
 
 export const siteTitle = "Sadman Yasar Sayem Blogs";
-const data = {
-  name: "Sadman Yasar Sayem",
-  profile: "https://avatars.githubusercontent.com/u/67522140?v=4",
-  urls: [
-    {
-      iconPath: "/upwork.svg",
-      url: "https://www.upwork.com/freelancers/~01cfd344d945d1f282?viewMode=1",
-      alt: "Click to visit my Upwork profile",
-    },
-    {
-      iconPath: "/linkedin.svg",
-      url: "https://www.linkedin.com/in/Sadman-Yasar-Sayem/",
-      alt: "Click to visit my LinkedIn profile",
-    },
-    {
-      iconPath: "/github.svg",
-      url: "https://github.com/SadmanYasar",
-      alt: "Click to visit my Github profile"
-    },
-    {
-      iconPath: "/behance.svg",
-      url: "https://www.behance.net/sadmanyasar",
-      alt: "Click to visit my Behance profile"
-    },
-  ],
-};
 
 export default function Layout({ children, home }) {
   return (
     <>
-      <div className="max-w-2xl w-full min-h-screen mx-auto px-4">
+      <div className="w-full max-w-2xl min-h-screen px-4 mx-auto">
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <meta
             name="description"
             content="Sadman Yasar Sayem personal website using Next.js"
           />
-          <meta property="og:image" content={data.profile} />
+          <meta property="og:image" content={profileData.profile} />
           <meta name="og:title" content={siteTitle} />
           <meta name="twitter:card" content="summary_large_image" />
+
         </Head>
         <header className="flex flex-col self-center">
           {home ? (
             <>
-              <div className="relative rounded-full mx-auto mt-8">
+              <div className="relative mx-auto mt-8 rounded-full">
                 <img
-                  src={data.profile}
-                  className="rounded-full hover:shadow-purple-500 transition ease-in-out duration-100 shadow-lg h-36 w-36 object-cover border-1 border-purple-500"
-                  alt={data.name}
+                  src={profileData.profile}
+                  className="object-cover transition duration-100 ease-in-out border-purple-500 rounded-full shadow-lg hover:shadow-purple-500 h-36 w-36 border-1"
+                  alt={profileData.name}
                 />
               </div>
 
               <h1 className="text-2xl leading-1.3 font-extrabold tracking-wide my-8 mx-auto">
-                {data.name}
+                {profileData.name}
               </h1>
-              <div className="w-full mx-auto mb-4 flex items-center justify-center space-x-6">
-                {data.urls.map((url, index) => (
-                  <a href={url.url} key={index} target="_blank" aria-label={`${data.urls[index].alt}`}>
+              <div className="flex items-center justify-center w-full mx-auto mb-4 space-x-6">
+                {profileData.urls.map((url, index) => (
+                  <a href={url.url} key={index} target="_blank" aria-label={`${profileData.urls[index].alt}`}>
                     <img
                       src={url.iconPath}
-                      className="w-12 h-12 rounded-lg object-cover p-2 hover:shadow-lg hover:shadow-purple-500 transition duration-100"
+                      className="object-cover w-12 h-12 p-2 transition duration-100 rounded-lg hover:shadow-lg hover:shadow-purple-500"
                       alt={url.alt}
                     />
                   </a>
@@ -75,15 +53,15 @@ export default function Layout({ children, home }) {
               <Link legacyBehavior href="/">
                 <a aria-label="Sadman Yasar Sayem profile picture">
                   <img
-                    src={data.profile}
-                    className="rounded-full h-24 w-24 object-cover mt-8 transition hover:border-4 border-purple-500 border-opacity-20 ease-in-out duration-100"
-                    alt={data.name}
+                    src={profileData.profile}
+                    className="object-cover w-24 h-24 mt-8 transition duration-100 ease-in-out border-purple-500 rounded-full hover:border-4 border-opacity-20"
+                    alt={profileData.name}
                   />
                 </a>
               </Link>
               <h2 className="text-lg leading-1.4 my-4">
                 <Link legacyBehavior href="/">
-                  <a className="text-current" aria-label="Sadman Yasar Sayem">{data.name}</a>
+                  <a className="text-current" aria-label="Sadman Yasar Sayem">{profileData.name}</a>
                 </Link>
               </h2>
             </>
@@ -101,6 +79,7 @@ export default function Layout({ children, home }) {
         )}
       </div>
       <Starfield />
+      <ScrollToTop smooth component={<ScrollToTopIcon />} style={{ backgroundColor: "transparent", boxShadow: "none", border: "none" }} />
     </>
   );
 }
