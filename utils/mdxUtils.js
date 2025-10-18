@@ -24,8 +24,11 @@ export function getSortedPostsData() {
         }
     })
 
+    // Filter to only include published posts
+    const publishedPosts = posts.filter((post) => post.data.status === "published")
+
     // Sort posts by date
-    return posts.sort((a, b) => {
+    return publishedPosts.sort((a, b) => {
         if (a.data.date < b.data.date) {
             return 1
         } else if (a.data.date > b.data.date) {

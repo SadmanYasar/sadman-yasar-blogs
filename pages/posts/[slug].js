@@ -13,6 +13,7 @@ import Head from "next/head";
 import path from "path";
 import { useRouter } from "next/router";
 import { config } from "data/config";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -108,6 +109,7 @@ export default function Post({ source, frontMatter }) {
           <MDXRemote {...source} components={components} />
           <Comments />
         </main>
+        <GoogleTagManager gtmId="G-P43MJLFWMN" />
 
         <style jsx>{`
           .post-header h1 {

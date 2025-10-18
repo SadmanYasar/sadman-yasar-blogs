@@ -22,7 +22,7 @@ export default function Home({ allPostsData }) {
       </Head>
       <section className="headingMd">
         <p>
-          Hi! I am a Computer Science undergraduate student at UTM. Here, you
+          Hi! I am a Software Engineer from Malaysia working at a Singaporean company. Here you
           will find my thoughts and anything that I find interesting to write
           on, mostly tech-related. 👨‍💻
         </p>
@@ -40,7 +40,7 @@ export default function Home({ allPostsData }) {
               initial={{ opacity: 0 }}
               animate={{
                 opacity: 1,
-                transition: { delay: index * 0.2, duration: 0.5 },
+                transition: { delay: index * 0.1, duration: 0.3 },
               }}
             >
               <Link
