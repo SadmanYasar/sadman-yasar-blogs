@@ -22,7 +22,7 @@ export default function Home({ allPostsData }) {
       </Head>
       <section className="headingMd">
         <p>
-          Hi! I am a Software Engineer from Malaysia working at a Singaporean company. Here you
+          Hi! I am a Software Engineer living in Malaysia and working at a Singaporean company. Here you
           will find my thoughts and anything that I find interesting to write
           on, mostly tech-related. 👨‍💻
         </p>
