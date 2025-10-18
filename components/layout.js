@@ -4,6 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import ScrollToTop from "react-scroll-to-top";
 import ScrollToTopIcon from "./scrollToTop";
+import { sendGTMEvent } from '@next/third-parties/google'
 
 export const siteTitle = "Sadman Yasar Sayem Blogs";
 
@@ -50,7 +51,11 @@ export default function Layout({ children, home }) {
             </>
           ) : (
             <>
-              <Link legacyBehavior href="/">
+              <Link legacyBehavior href="/" onClick={() => sendGTMEvent({
+                event: 'profile_image_click',
+                category: 'engagement',
+                label: 'Profile image clicked from subpage'
+              })}>
                 <a aria-label="Sadman Yasar Sayem profile picture">
                   <img
                     src={profileData.profile}

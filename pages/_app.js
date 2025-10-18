@@ -16,8 +16,8 @@ export default function App({ Component, pageProps }) {
       <main className={`${satoshi.variable} font-sans`}>
         <Component {...pageProps} />
       </main>
-      <Script src="https://cdn.userway.org/widget.js" data-account="6iC0LiBYmw" />
       <GoogleTagManager gtmId="G-P43MJLFWMN" />
+      <Script src="https://cdn.userway.org/widget.js" data-account="6iC0LiBYmw" />
     </>
   );
 }
