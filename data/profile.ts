@@ -18,6 +18,11 @@ export const profileData = {
       alt: "Click to visit my Github profile",
     },
     {
+      iconPath: "/x.svg",
+      url: "https://x.com/sadmanyasar_",
+      alt: "Click to visit my X profile",
+    },
+    {
       iconPath: "/behance.svg",
       url: "https://www.behance.net/sadmanyasar",
       alt: "Click to visit my Behance profile",
