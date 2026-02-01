@@ -39,7 +39,7 @@ export default function Blog({ allPostsData }) {
                 </h1>
                 <p className="text-gray-400 text-lg max-w-2xl mx-auto">
                   Thoughts on software engineering, web development, and technology. 
-                  Here you'll find my insights and tutorials on topics I'm passionate about.
+                  Here you&apos;ll find my insights and tutorials on topics I&apos;m passionate about.
                 </p>
               </div>
             </FadeUp>

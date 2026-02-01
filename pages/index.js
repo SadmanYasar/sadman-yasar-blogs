@@ -64,7 +64,7 @@ export default function Portfolio() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              Hi, I'm
+              Hi, I&apos;m
             </motion.p>
 
             <h1 className="heading2Xl mb-6">
@@ -186,7 +186,7 @@ export default function Portfolio() {
                     {profileData.bio}
                   </p>
                   <p className="text-gray-400 leading-relaxed">
-                    When I'm not coding, you can find me exploring new technologies, 
+                    When I&apos;m not coding, you can find me exploring new technologies, 
                     contributing to open-source projects, or sharing my knowledge through 
                     blog posts and mentoring.
                   </p>

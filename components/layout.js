@@ -13,7 +13,6 @@ export default function Layout({ children, home }) {
     <>
       <div className="w-full max-w-2xl min-h-screen px-4 mx-auto">
         <Head>
-          <link rel="icon" href="/favicon.ico" />
           <meta
             name="description"
             content="Sadman Yasar Sayem personal website using Next.js"
