@@ -1,7 +1,7 @@
 import Date from "@/components/date";
 import Layout, { siteTitle } from "@/components/layout";
 import { getSortedPostsData } from "@/utils/mdxUtils";
-import { motion } from "framer-motion";
+import { motion } from "motion/react"
 import Head from "next/head";
 import Link from "next/link";
 
