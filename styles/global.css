@@ -3,22 +3,41 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-stone-900 text-purple-50/90 antialiased selection:bg-purple-800;
+    @apply bg-stone-950 text-purple-50/90 antialiased selection:bg-purple-800;
+  }
+
+  /* Smooth scrolling with reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
 @layer components {
   .heading2Xl {
-    @apply text-2.5xl font-semibold tracking-wide my-4;
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
   }
 
   .headingXl {
-    @apply text-2xl font-semibold tracking-wide my-4;
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
   }
 
   .headingLg {
-    @apply text-xl my-4;
+    @apply text-xl md:text-2xl font-semibold;
   }
 
   .headingMd {
@@ -46,14 +65,69 @@
   }
 
   .lightText {
-    @apply text-gray-500;
+    @apply text-gray-400;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-xl border border-white/5;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent;
+    background-size: 200% auto;
+  }
+
+  /* Hover glow effect */
+  .hover-glow {
+    @apply transition-shadow duration-300 hover:shadow-lg hover:shadow-purple-500/25;
+  }
+
+  /* Section spacing */
+  .section {
+    @apply py-24 md:py-32 lg:py-40;
+  }
+
+  /* Container with max width */
+  .container-custom {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Text balance for headings */
+  .text-balance {
+    text-wrap: balance;
   }
 }
 
 ::-webkit-scrollbar {
-  width: 0.4rem; /* Adjust the width as needed */
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: transparent; /* Hide the thumb */
+  background: rgba(168, 85, 247, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.5);
 }
