@@ -44,11 +44,9 @@ export default function Home({ allPostsData }) {
               }}
             >
               <Link
-                legacyBehavior
                 as={`/posts/${post.filePath.replace(/\.mdx?$/, "")}`}
-                href={`/posts/[slug]`}
-              >
-                <a>{post.data.title}</a>
+                href={`/posts/[slug]`}>
+                {post.data.title}
               </Link>
               <br />
               <small className="lightText">
