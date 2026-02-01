@@ -1,5 +1,5 @@
 import { clsx } from 'clsx';
-import { useReducedMotion } from 'framer-motion';
+import { useReducedMotion } from "motion/react";
 import { useEffect, useState } from 'react';
 import { useWindowSize } from 'react-use';
 import { StarField } from 'starfield-react';

@@ -51,22 +51,22 @@ export default function Layout({ children, home }) {
             </>
           ) : (
             <>
-              <Link legacyBehavior href="/" onClick={() => sendGTMEvent({
+              <Link href="/" onClick={() => sendGTMEvent({
                 event: 'profile_image_click',
                 category: 'engagement',
                 label: 'Profile image clicked from subpage'
-              })}>
-                <a aria-label="Sadman Yasar Sayem profile picture">
-                  <img
-                    src={profileData.profile}
-                    className="object-cover w-24 h-24 mt-8 transition duration-100 ease-in-out border-purple-500 rounded-full hover:border-4 border-opacity-20"
-                    alt={profileData.name}
-                  />
-                </a>
+              })} aria-label="Sadman Yasar Sayem profile picture">
+
+                <img
+                  src={profileData.profile}
+                  className="object-cover w-24 h-24 mt-8 transition duration-100 ease-in-out border-purple-500 rounded-full hover:border-4 border-opacity-20"
+                  alt={profileData.name}
+                />
+
               </Link>
               <h2 className="text-lg leading-1.4 my-4">
-                <Link legacyBehavior href="/">
-                  <a className="text-current" aria-label="Sadman Yasar Sayem">{profileData.name}</a>
+                <Link href="/" className="text-current" aria-label="Sadman Yasar Sayem">
+                  {profileData.name}
                 </Link>
               </h2>
             </>
@@ -75,10 +75,13 @@ export default function Layout({ children, home }) {
         <main>{children}</main>
         {!home && (
           <div className="my-12">
-            <Link legacyBehavior href="/">
-              <a className="hover:text-purple-500 selection:text-white" aria-label="Back to home">
+            <Link
+              href="/"
+              className="hover:text-purple-500 selection:text-white"
+              aria-label="Back to home">
+              
                 ← Back to home
-              </a>
+              
             </Link>
           </div>
         )}
