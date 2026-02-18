@@ -20,13 +20,6 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className="headingMd">
-        <p>
-          Hi! I am a Software Engineer living in Malaysia and working at a Singaporean company. Here you
-          will find my thoughts and anything that I find interesting to write
-          on, mostly tech-related. 👨‍💻
-        </p>
-      </section>
       <section className="headingMd padding1px">
         <div className="flex flex-row gap-2">
           <h2 className="headingLg">Blog</h2>
