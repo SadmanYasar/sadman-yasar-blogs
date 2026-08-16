@@ -6,9 +6,9 @@ import matter from 'gray-matter';
 export const POSTS_PATH = path.join(process.cwd(), 'posts');
 
 // postFilePaths is the list of all mdx files inside the POSTS_PATH directory
-export const postFilePaths = fs
-  .readdirSync(POSTS_PATH)
-  .filter((filePath) => /\.mdx?$/.test(filePath));
+export const postFilePaths: string[] = fs.existsSync(POSTS_PATH)
+  ? fs.readdirSync(POSTS_PATH).filter((filePath) => /\.mdx?$/.test(filePath))
+  : [];
 
 export interface PostData {
   content: string;
@@ -27,9 +27,12 @@ export interface PostData {
 }
 
 export function getSortedPostsData(): PostData[] {
+  if (!fs.existsSync(POSTS_PATH)) return [];
+
   // Get file names under /posts
   const posts: PostData[] = postFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
+    const fullPath = path.join(POSTS_PATH, filePath);
+    const source = fs.readFileSync(fullPath, 'utf8');
     const { content, data } = matter(source);
 
     return {
@@ -42,7 +45,7 @@ export function getSortedPostsData(): PostData[] {
   // Filter to only include published posts
   const publishedPosts = posts.filter((post) => post.data.status === 'published');
 
-  // Sort posts by date
+  // Sort posts by date descending
   return publishedPosts.sort((a, b) => {
     if ((a.data.date || '') < (b.data.date || '')) {
       return 1;

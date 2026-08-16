@@ -1,14 +1,16 @@
 import type { MetadataRoute } from 'next';
-import { postFilePaths } from '@/utils/mdx-utils';
+import { getSortedPostsData } from '@/utils/mdx-utils';
+import { siteConfig } from 'data/config';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://sadman-yasar-sayem-blogs.vercel.app';
+  const baseUrl = siteConfig.siteUrl;
+  const posts = getSortedPostsData();
 
-  const posts = postFilePaths.map((filePath) => {
-    const slug = filePath.replace(/\.mdx?$/, '');
+  const postEntries: MetadataRoute.Sitemap = posts.map((post) => {
+    const slug = post.filePath.replace(/\.mdx?$/, '');
     return {
       url: `${baseUrl}/posts/${slug}`,
-      lastModified: new Date(),
+      lastModified: post.data.date ? new Date(post.data.date) : new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     };
@@ -27,6 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
-    ...posts,
+    ...postEntries,
   ];
 }

@@ -1,7 +1,8 @@
 import type { MetadataRoute } from 'next';
+import { siteConfig } from 'data/config';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://sadman-yasar-sayem-blogs.vercel.app';
+  const baseUrl = siteConfig.siteUrl;
   return {
     rules: {
       userAgent: '*',

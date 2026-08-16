@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import Link from '@/components/link';
+import { profileData } from 'data/profile';
 
 interface NavItem {
   label: string;
@@ -79,7 +80,7 @@ export default function Navbar() {
               </motion.div>
             ))}
             <motion.a
-              href="mailto:hello@sadmanyasar.dev"
+              href={`mailto:${profileData.email}`}
               className="px-4 py-2 text-sm font-medium text-purple-400 border border-purple-500/50 rounded-full hover:bg-purple-500/10 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -165,7 +166,7 @@ export default function Navbar() {
                 </motion.div>
               ))}
               <motion.a
-                href="mailto:hello@sadmanyasar.dev"
+                href={`mailto:${profileData.email}`}
                 className="mt-8 px-8 py-3 text-lg font-medium text-purple-400 border border-purple-500 rounded-full"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

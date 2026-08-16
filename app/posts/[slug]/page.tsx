@@ -10,6 +10,7 @@ import DateRenderer from "@/components/date";
 import Comments from "@/components/comments";
 import { mdxComponents } from "@/components/mdx-components";
 import { POSTS_PATH, postFilePaths } from "@/utils/mdx-utils";
+import { siteConfig } from "data/config";
 
 interface PostPageProps {
   params: Promise<{
@@ -37,7 +38,7 @@ export async function generateMetadata({
 
   const source = fs.readFileSync(postFilePath, "utf8");
   const { data } = matter(source);
-  const canonicalUrl = `https://sadman-yasar-sayem-blogs.vercel.app/posts/${slug}`;
+  const canonicalUrl = `${siteConfig.siteUrl}/posts/${slug}`;
 
   return {
     title: data.title,
@@ -54,14 +55,14 @@ export async function generateMetadata({
       publishedTime: data.date ? new Date(data.date).toISOString() : undefined,
       tags: data.tags,
       images: data.image ? [{ url: data.image }] : undefined,
-      siteName: "Sadman Yasar Sayem Blogs",
+      siteName: siteConfig.title,
     },
     twitter: {
       card: "summary_large_image",
       title: data.title,
       description: data.description,
       images: data.image ? [data.image] : undefined,
-      creator: "@sadmanyasar_",
+      creator: siteConfig.twitterHandle,
     },
   };
 }
@@ -91,7 +92,7 @@ export default async function PostPage({ params }: PostPageProps) {
           <article className="prose-container">
             <MDXRemote source={content} components={mdxComponents} />
           </article>
-          <Comments />
+          <Comments title={data.title} />
         </main>
       </Layout>
     </>

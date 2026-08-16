@@ -3,10 +3,11 @@
 import React from "react";
 import Image from "next/image";
 import { profileData } from "data/profile";
+import { siteConfig } from "data/config";
 import Link from "@/components/link";
 import { sendGTMEvent } from '@next/third-parties/google';
 
-export const siteTitle = "Sadman Yasar Sayem Blogs";
+export const siteTitle = siteConfig.title;
 
 interface LayoutProps {
   children: React.ReactNode;
