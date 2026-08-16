@@ -1,3 +1,5 @@
+import { siteConfig } from './config';
+
 export const profileData = {
   name: "Sadman Yasar Sayem",
   profile: "https://avatars.githubusercontent.com/u/67522140?v=4",
@@ -7,7 +9,7 @@ export const profileData = {
   bio: `I'm a Software Engineer based in Malaysia, working remotely for a Singaporean company. 
 I specialize in building exceptional digital experiences with modern web technologies. 
 My passion lies in creating performant, accessible, and visually stunning applications.`,
-  email: "hello@sadmanyasar.dev",
+  email: siteConfig.email,
   urls: [
     {
       iconPath: "/upwork.svg",
@@ -43,7 +45,7 @@ My passion lies in creating performant, accessible, and visually stunning applic
   experience: [
     {
       company: "Singaporean Tech Company",
-      role: "Software Deverloper Executive",
+      role: "Software Developer Executive",
       period: "2023 - Present",
       description:
         "Building scalable web applications with Next.js, React, and TypeScript. Leading frontend architecture decisions and mentoring junior developers.",

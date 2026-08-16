@@ -7,6 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Starfield from "@/components/starfield";
 import ScrollToTopWrapper from "@/components/scroll-to-top-wrapper";
 import { ViewTransitionsProvider } from "@/components/view-transitions";
+import { siteConfig } from "data/config";
 import { profileData } from "data/profile";
 import "../styles/global.css";
 
@@ -16,30 +17,30 @@ const satoshi = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sadman-yasar-sayem-blogs.vercel.app"),
+  metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: "Sadman Yasar Sayem Blogs",
-    template: "%s | Sadman Yasar Sayem Blogs",
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.title}`,
   },
-  description: "Sadman Yasar Sayem personal website and engineering blogs",
+  description: siteConfig.description,
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-icon.png",
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "Sadman Yasar Sayem Blogs",
-    description: "Sadman Yasar Sayem personal website and engineering blogs",
+    title: siteConfig.title,
+    description: siteConfig.description,
     images: [{ url: profileData.profile }],
-    siteName: "Sadman Yasar Sayem Blogs",
+    siteName: siteConfig.title,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sadman Yasar Sayem Blogs",
-    description: "Sadman Yasar Sayem personal website and engineering blogs",
+    title: siteConfig.title,
+    description: siteConfig.description,
     images: [profileData.profile],
-    creator: "@sadmanyasar_",
+    creator: siteConfig.twitterHandle,
   },
 };
 
@@ -63,12 +64,12 @@ export default function RootLayout({
           {children}
           <ScrollToTopWrapper />
         </ViewTransitionsProvider>
-        <GoogleTagManager gtmId="G-P43MJLFWMN" />
+        <GoogleTagManager gtmId={siteConfig.gtmId} />
         <Analytics />
         <SpeedInsights />
         <Script
           src="https://cdn.userway.org/widget.js"
-          data-account="6iC0LiBYmw"
+          data-account={siteConfig.userwayAccount}
           strategy="afterInteractive"
         />
       </body>

@@ -2,16 +2,16 @@
 
 import Giscus from "@giscus/react";
 
-export default function Comments() {
+interface CommentsProps {
+  title?: string;
+}
+
+export default function Comments({ title }: CommentsProps) {
   const repo = (process.env.NEXT_PUBLIC_COMMENTS_REPO ||
     "SadmanYasar/sadman-yasar-blogs") as `${string}/${string}`;
-  const repoId = process.env.NEXT_PUBLIC_COMMENTS_REPO_ID || "";
-  const category = process.env.NEXT_PUBLIC_COMMENTS_REPO_CATEGORY || "";
-  const categoryId = process.env.NEXT_PUBLIC_COMMENTS_CATEGORY_ID || "";
-
-  if (!repo || !repoId) {
-    return null;
-  }
+  const repoId = process.env.NEXT_PUBLIC_COMMENTS_REPO_ID || "R_kgDOHuGvkQ";
+  const category = process.env.NEXT_PUBLIC_COMMENTS_REPO_CATEGORY || "Announcements";
+  const categoryId = process.env.NEXT_PUBLIC_COMMENTS_CATEGORY_ID || "DIC_kwDOHuGvkc4CZpcR";
 
   return (
     <section
@@ -23,7 +23,8 @@ export default function Comments() {
         repoId={repoId}
         category={category}
         categoryId={categoryId}
-        mapping="title"
+        mapping={title ? "specific" : "og:title"}
+        term={title}
         strict="0"
         reactionsEnabled="1"
         emitMetadata="0"
