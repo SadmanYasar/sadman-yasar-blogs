@@ -94,8 +94,26 @@ export default function Layout({ children, home = false }: LayoutProps) {
         </div>
       )}
       <footer className="mt-16 pb-12 pt-8 border-t border-white/10 text-center text-xs text-gray-400">
-        <p>
-          © {new Date().getFullYear()} {profileData.name}. All rights reserved.
+        <p className="flex flex-wrap items-center justify-center gap-2">
+          <span>© {new Date().getFullYear()} {profileData.name}. All rights reserved.</span>
+          <span>•</span>
+          <a
+            href="/llms.txt"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-purple-400 transition-colors"
+          >
+            llms.txt
+          </a>
+          <span>•</span>
+          <a
+            href="/sitemap.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-purple-400 transition-colors"
+          >
+            sitemap.md
+          </a>
         </p>
       </footer>
     </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useLayoutEffect } from 'react';
-import { useRouter as useNextRouter, usePathname, useSearchParams } from 'next/navigation';
+import { useRouter as useNextRouter, usePathname } from 'next/navigation';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 
 type FinishViewTransition = () => void;
@@ -19,15 +19,14 @@ const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffec
 export function ViewTransitionsProvider({ children }: { children: React.ReactNode }) {
   const router = useNextRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
-  // When pathname or searchParams change, Next.js has committed the new route DOM
+  // When pathname changes, Next.js has committed the new route DOM
   useIsomorphicLayoutEffect(() => {
     if (pendingTransitionResolve) {
       pendingTransitionResolve();
       pendingTransitionResolve = null;
     }
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   const navigate = (href: string) => {
     if (typeof document !== 'undefined' && 'startViewTransition' in document) {

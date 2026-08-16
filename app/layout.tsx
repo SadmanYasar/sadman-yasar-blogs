@@ -54,6 +54,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={satoshi.variable}>
+      <head>
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Context" />
+      </head>
       <body className="font-sans antialiased bg-stone-900 text-purple-50/90 selection:bg-purple-800">
         <ViewTransitionsProvider>
           <Starfield />
