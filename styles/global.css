@@ -3,41 +3,22 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
-    @apply bg-stone-950 text-purple-50/90 antialiased selection:bg-purple-800;
-  }
-
-  /* Smooth scrolling with reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
+    @apply bg-stone-900 text-purple-50/90 antialiased selection:bg-purple-800;
   }
 }
 
 @layer components {
   .heading2Xl {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+    @apply text-3xl font-semibold tracking-wide my-4;
   }
 
   .headingXl {
-    @apply text-3xl md:text-4xl font-bold tracking-tight;
+    @apply text-2xl font-semibold tracking-wide my-4;
   }
 
   .headingLg {
-    @apply text-xl md:text-2xl font-semibold;
+    @apply text-xl my-4;
   }
 
   .headingMd {
@@ -65,69 +46,96 @@
   }
 
   .lightText {
-    @apply text-gray-400;
-  }
-
-  /* Glassmorphism */
-  .glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
-  }
-
-  .glass-dark {
-    @apply bg-black/20 backdrop-blur-xl border border-white/5;
-  }
-
-  /* Gradient text */
-  .gradient-text {
-    @apply bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent;
-    background-size: 200% auto;
-  }
-
-  /* Hover glow effect */
-  .hover-glow {
-    @apply transition-shadow duration-300 hover:shadow-lg hover:shadow-purple-500/25;
-  }
-
-  /* Section spacing */
-  .section {
-    @apply py-24 md:py-32 lg:py-40;
-  }
-
-  /* Container with max width */
-  .container-custom {
-    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-}
-
-@layer utilities {
-  /* Hide scrollbar but keep functionality */
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Text balance for headings */
-  .text-balance {
-    text-wrap: balance;
+    @apply text-gray-500;
   }
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
+  width: 0.4rem; /* Adjust the width as needed */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(168, 85, 247, 0.3);
-  border-radius: 3px;
+  background-color: transparent; /* Hide the thumb */
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(168, 85, 247, 0.5);
+/* View Transitions API */
+:root {
+  --duration-exit: 150ms;
+  --duration-enter: 220ms;
+  --duration-move: 380ms;
 }
+
+@keyframes vt-fade {
+  from {
+    opacity: 0;
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes vt-slide-up {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes vt-slide-down {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-8px);
+    opacity: 0;
+  }
+}
+
+::view-transition-old(root) {
+  animation: var(--duration-exit) cubic-bezier(0.4, 0, 1, 1) both vt-slide-down,
+             var(--duration-exit) ease-in both vt-fade reverse;
+}
+
+::view-transition-new(root) {
+  animation: var(--duration-enter) cubic-bezier(0, 0, 0.2, 1) var(--duration-exit) both vt-slide-up,
+             var(--duration-enter) ease-out var(--duration-exit) both vt-fade;
+}
+
+/* Shared element morphs */
+::view-transition-group(profile-avatar),
+::view-transition-group(profile-name),
+::view-transition-group(back-nav) {
+  animation-duration: var(--duration-move);
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-image-pair(profile-name) {
+  isolation: isolate;
+}
+
+::view-transition-old(profile-name),
+::view-transition-new(profile-name) {
+  animation-duration: var(--duration-move);
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  mix-blend-mode: normal;
+  height: 100%;
+  width: 100%;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
+

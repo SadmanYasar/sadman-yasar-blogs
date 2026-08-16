@@ -17,11 +17,18 @@ const withMDX = require('@next/mdx')({
 const nextConfig = {
     // Configure pageExtensions to include md and mdx
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-    // Optionally, add any other Next.js config below
     reactStrictMode: true,
-    i18n: {
-        locales: ["en"],
-        defaultLocale: "en",
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'avatars.githubusercontent.com',
+                pathname: '/**',
+            },
+        ],
+    },
+    experimental: {
+        viewTransition: true,
     },
     compiler: {
         removeConsole: process.env.NODE_ENV === "production",

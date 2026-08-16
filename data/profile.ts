@@ -1,6 +1,7 @@
 export const profileData = {
   name: "Sadman Yasar Sayem",
   profile: "https://avatars.githubusercontent.com/u/67522140?v=4",
+  favicon: "/favicon.ico",
   title: "Software Engineer",
   tagline: "I build things for the web.",
   bio: `I'm a Software Engineer based in Malaysia, working remotely for a Singaporean company. 
@@ -42,23 +43,32 @@ My passion lies in creating performant, accessible, and visually stunning applic
   experience: [
     {
       company: "Singaporean Tech Company",
-      role: "Software Engineer",
+      role: "Software Deverloper Executive",
       period: "2023 - Present",
-      description: "Building scalable web applications with Next.js, React, and TypeScript. Leading frontend architecture decisions and mentoring junior developers.",
-      technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "GraphQL"],
+      description:
+        "Building scalable web applications with Next.js, React, and TypeScript. Leading frontend architecture decisions and mentoring junior developers.",
+      technologies: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "GraphQL",
+      ],
     },
     {
       company: "Tech Startup",
       role: "Frontend Developer",
       period: "2021 - 2023",
-      description: "Built the core product from scratch, implementing responsive designs and optimizing performance. Collaborated closely with designers and backend engineers.",
+      description:
+        "Built the core product from scratch, implementing responsive designs and optimizing performance. Collaborated closely with designers and backend engineers.",
       technologies: ["React", "Redux", "Node.js", "MongoDB", "AWS"],
     },
     {
       company: "Freelance",
       role: "Full Stack Developer",
       period: "2020 - 2021",
-      description: "Delivered custom web solutions for clients ranging from startups to established businesses. Focused on e-commerce and portfolio websites.",
+      description:
+        "Delivered custom web solutions for clients ranging from startups to established businesses. Focused on e-commerce and portfolio websites.",
       technologies: ["React", "Next.js", "WordPress", "Shopify", "Firebase"],
     },
   ],
