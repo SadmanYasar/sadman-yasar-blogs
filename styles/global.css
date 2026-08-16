@@ -10,7 +10,7 @@
 
 @layer components {
   .heading2Xl {
-    @apply text-2.5xl font-semibold tracking-wide my-4;
+    @apply text-3xl font-semibold tracking-wide my-4;
   }
 
   .headingXl {
@@ -57,3 +57,85 @@
 ::-webkit-scrollbar-thumb {
   background-color: transparent; /* Hide the thumb */
 }
+
+/* View Transitions API */
+:root {
+  --duration-exit: 150ms;
+  --duration-enter: 220ms;
+  --duration-move: 380ms;
+}
+
+@keyframes vt-fade {
+  from {
+    opacity: 0;
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes vt-slide-up {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes vt-slide-down {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-8px);
+    opacity: 0;
+  }
+}
+
+::view-transition-old(root) {
+  animation: var(--duration-exit) cubic-bezier(0.4, 0, 1, 1) both vt-slide-down,
+             var(--duration-exit) ease-in both vt-fade reverse;
+}
+
+::view-transition-new(root) {
+  animation: var(--duration-enter) cubic-bezier(0, 0, 0.2, 1) var(--duration-exit) both vt-slide-up,
+             var(--duration-enter) ease-out var(--duration-exit) both vt-fade;
+}
+
+/* Shared element morphs */
+::view-transition-group(profile-avatar),
+::view-transition-group(profile-name),
+::view-transition-group(back-nav) {
+  animation-duration: var(--duration-move);
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-image-pair(profile-name) {
+  isolation: isolate;
+}
+
+::view-transition-old(profile-name),
+::view-transition-new(profile-name) {
+  animation-duration: var(--duration-move);
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  mix-blend-mode: normal;
+  height: 100%;
+  width: 100%;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
+

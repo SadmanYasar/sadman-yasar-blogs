@@ -1,0 +1,21 @@
+{
+  "name": "Sadman Yasar Sayem",
+  "short_name": "Sadman Yasar Sayem",
+  "icons": [
+    {
+      "src": "/apple-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#291a2b",
+  "background_color": "#291a2b",
+  "display": "standalone"
+}

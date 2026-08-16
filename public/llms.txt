@@ -1,0 +1,26 @@
+# Sadman Yasar Sayem - Engineering Blog & Portfolio
+
+> Personal website and engineering blog of Sadman Yasar Sayem, a Software Engineer based in Malaysia specializing in full-stack web development, Next.js, TypeScript, and modern system architectures.
+
+## Author & Profile
+
+- [Portfolio / Home](https://sadman-yasar-sayem-blogs.vercel.app/): Overview of engineering work, experience, and articles.
+- [GitHub](https://github.com/SadmanYasar): Open source projects and code repositories.
+- [LinkedIn](https://www.linkedin.com/in/Sadman-Yasar-Sayem/): Professional background and career history.
+- [Upwork](https://www.upwork.com/freelancers/~01cfd344d945d1f282?viewMode=1): Freelance software engineering services.
+- [X / Twitter](https://x.com/sadmanyasar_): Technical thoughts and updates.
+
+## Articles & Blog Posts
+
+- [Architecting enterprise Nextjs web applications with Directus and Refine.dev](https://sadman-yasar-sayem-blogs.vercel.app/posts/architecting-large-scale-webapps-using-nextjs): Architectural breakdown of scaling and maintaining a 150k+ LOC enterprise Next.js application using Directus, Refine.dev, and PostgreSQL.
+- [Aligning learnings from Software Engineering Degree with real job](https://sadman-yasar-sayem-blogs.vercel.app/posts/aligning-cs-degree-with-real-job): Real-world application of software engineering principles, design patterns, and handling tech debt in startups.
+- [Saving legacy Node.js projects with Bun](https://sadman-yasar-sayem-blogs.vercel.app/posts/migrate-commonjs-to-esmodule): Migration journey from CommonJS to ESModules and modern tooling using Bun in a legacy MERN stack project.
+- [Thoughts on ChatGPT / how to make a JS object to .env variables converter in Svelte](https://sadman-yasar-sayem-blogs.vercel.app/posts/chatGPT3-experience): Practical exploration of AI-assisted coding and building a Svelte utility tool.
+- [Got Yarn and NPM installed? Remove cache!](https://sadman-yasar-sayem-blogs.vercel.app/posts/remove-disk-space-on-c-drive-windows): Quick guide on reclaiming significant disk space by clearing yarn/npm package caches on Windows.
+- [First Semester Experience At UTM](https://sadman-yasar-sayem-blogs.vercel.app/posts/first-semester-experience): Reflections on navigating university studies during online learning mode.
+
+## Technical Skills & Focus
+
+- **Languages & Frameworks**: TypeScript, JavaScript, React, Next.js, Node.js, Tailwind CSS, Svelte.
+- **Backend & Databases**: PostgreSQL, Directus, MongoDB, Firebase, GraphQL, REST APIs.
+- **Tools & DevOps**: Git, Docker, AWS, Bun, Linux.
